@@ -51,15 +51,6 @@ class DBHelper {
   }
 
   Future<int> insertQuote({required QuoteModal quoteModal}) async {
-    // String query =
-    //     "INSERT INTO $tableQuotes($qId, $qQuote, $qAuthor) VALUES(?, ?, ?)";
-    //
-    // List args = [
-    //   quoteModal.id,
-    //   quoteModal.quote,
-    //   quoteModal.author,
-    // ];
-
     return await database.rawInsert(
       "INSERT INTO $tableQuotes($qId, $qQuote, $qAuthor) VALUES(?, ?, ?)",
       [

@@ -3,17 +3,14 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../controllers/home_controller.dart';
 import '../../controllers/json_data_controller.dart';
-import '../../controllers/quotes_controller.dart';
 import '../components/home_component.dart';
 import '../components/library_component.dart';
-import '../components/quotes_component.dart';
-import '../components/search_component.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
 
   HomeController homeController = Get.put(HomeController());
-  QuotesController quotesController = Get.put(QuotesController());
+  // QuotesController quotesController = Get.put(QuotesController());
   JsonDataController jsonDataController = Get.find<JsonDataController>();
 
   @override
@@ -65,8 +62,8 @@ class HomePage extends StatelessWidget {
         controller: homeController.pageController,
         children: [
           HomeComponent(),
-          QuotesComponent(),
-          SearchComponent(),
+          // QuotesComponent(),
+          // SearchComponent(),
           LibraryComponent(),
         ],
       ),
@@ -74,9 +71,6 @@ class HomePage extends StatelessWidget {
         return BottomNavigationBar(
           onTap: (index) {
             homeController.onPageChange(index: index);
-            if (index == 1) {
-              quotesController.getImages();
-            }
           },
           currentIndex: homeController.getCurrentIndex,
           selectedLabelStyle: const TextStyle(color: Color(0xff09203F)),
@@ -87,14 +81,6 @@ class HomePage extends StatelessWidget {
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
               label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.layers_outlined),
-              label: 'Quotes',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.search),
-              label: 'Search',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.library_books_outlined),

@@ -7,7 +7,6 @@ import 'package:share_plus/share_plus.dart';
 
 import '../../controllers/json_data_controller.dart';
 import '../../modals/quote_modal.dart';
-import '../../utils/constant.dart';
 
 class FavoritePage extends StatelessWidget {
   FavoritePage({super.key});
@@ -31,20 +30,13 @@ class FavoritePage extends StatelessWidget {
                   itemBuilder: (context, index) {
                     QuoteModal quoteModal =
                         jsonDataController.allFavorite[index];
-                    Color c1 = color1[index % 10];
-                    Color c2 = color2[index % 10];
 
                     return Container(
                       margin: const EdgeInsets.all(10),
                       height: 180,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(16),
-                        gradient: LinearGradient(
-                          colors: [
-                            c1,
-                            c2,
-                          ],
-                        ),
+                        color: Colors.grey.shade200,
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

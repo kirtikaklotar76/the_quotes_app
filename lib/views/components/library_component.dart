@@ -7,13 +7,11 @@ import 'package:share_plus/share_plus.dart';
 
 import '../../controllers/db_quote_controller.dart';
 import '../../controllers/json_data_controller.dart';
-import '../../controllers/quotes_controller.dart';
 import '../../modals/quote_modal.dart';
-import '../../utils/constant.dart';
 
 class LibraryComponent extends StatelessWidget {
   DBQuoteController dbQuoteController = Get.find<DBQuoteController>();
-  QuotesController quotesController = Get.find<QuotesController>();
+  // QuotesController quotesController = Get.find<QuotesController>();
   JsonDataController jsonDataController = Get.find<JsonDataController>();
 
   @override
@@ -29,20 +27,13 @@ class LibraryComponent extends StatelessWidget {
               itemBuilder: (context, index) {
                 QuoteModal quoteModal =
                     dbQuoteController.fetchQuote.value[index];
-                Color c1 = color1[index % 10];
-                Color c2 = color2[index % 10];
 
                 return Container(
                   margin: const EdgeInsets.all(10),
                   height: 180,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
-                    gradient: LinearGradient(
-                      colors: [
-                        c1,
-                        c2,
-                      ],
-                    ),
+                    color: Colors.grey.shade200,
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -130,7 +121,7 @@ class LibraryComponent extends StatelessWidget {
             )
           : dbQuoteController.fetchQuote.value.isEmpty
               ? const Center(
-                  child: Text("Yet Quotes Are Not Added...!!"),
+                  child: Text("Quotes Are Not Added yet...!!"),
                 )
               : SizedBox(
                   height: height - 185,

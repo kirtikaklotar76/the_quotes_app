@@ -8,7 +8,6 @@ import 'package:share_plus/share_plus.dart';
 
 import '../../controllers/json_data_controller.dart';
 import '../../modals/quote_modal.dart';
-import '../../utils/constant.dart';
 
 class HomeComponent extends StatelessWidget {
   HomeComponent({super.key});
@@ -27,20 +26,13 @@ class HomeComponent extends StatelessWidget {
               itemCount: jsonDataController.allQuotesData.length,
               itemBuilder: (context, index) {
                 QuoteModal quoteModal = jsonDataController.allQuotesData[index];
-                Color c1 = color1[index % 10];
-                Color c2 = color2[index % 10];
 
                 return Container(
                   margin: const EdgeInsets.all(10),
                   height: 180,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
-                    gradient: LinearGradient(
-                      colors: [
-                        c1,
-                        c2,
-                      ],
-                    ),
+                    color: Color(0xff1D2D3C),
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -88,8 +80,10 @@ class HomeComponent extends StatelessWidget {
                               Get.snackbar(
                                   'Successfully Added', '${quoteModal.quote}');
                             },
-                            icon: const Icon(Icons.favorite_border,
-                            color: Colors.white,),
+                            icon: const Icon(
+                              Icons.favorite_border,
+                              color: Colors.white,
+                            ),
                           ),
                           IconButton(
                             onPressed: () {},
